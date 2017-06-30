@@ -73,8 +73,10 @@ describe('Find - uiautomator', function () {
       .should.eventually.have.length(1);
   });
   it('should not find an element which does not exist', async () => {
+    await driver.implicitWait(1000); // expect this to fail, so no need to wait too long
     await driver.findElOrEls('-android uiautomator', 'new UiSelector().description("chuckwudi")', true)
       .should.eventually.have.length(0);
+    await driver.implicitWait(20000); // restore implicit wait
   });
   it('should allow multiple selector statements and return the Union of the two sets', async () => {
     let clickable = await driver.findElOrEls('-android uiautomator', 'new UiSelector().clickable(true)', true);

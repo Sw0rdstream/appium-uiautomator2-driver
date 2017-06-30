@@ -3,11 +3,13 @@ import sampleApps from 'sample-apps';
 
 
 const uiautomator2ServerLaunchTimeout = process.env.TRAVIS ? 60000 : 20000;
+const uiautomator2ServerInstallTimeout = uiautomator2ServerLaunchTimeout;
 
 const GENERIC_CAPS = {
   deviceName: 'Android',
   platformName: 'Android',
   uiautomator2ServerLaunchTimeout,
+  uiautomator2ServerInstallTimeout,
 };
 
 const APIDEMOS_CAPS = _.defaults({
